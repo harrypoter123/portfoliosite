@@ -20,6 +20,93 @@
   --medium-font: 1.8rem;
   --p-font: 0.941rem;
 }
+
+/* Hinge effect */
+.animated.hinge {
+  animation: hinge 2s;
+}
+
+/* @keyframes hinge {
+  0% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+  
+    transform: rotate(80deg);
+  }
+  40%,
+  80% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(80deg);
+  }
+} */
+
+@keyframes hinge {
+  0% {
+    transform: rotate(0);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  20%, 60% {
+    transform: rotate(80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  40% {
+    transform: rotate(60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  80% {
+    transform: rotate(60deg) translateY(0);
+    opacity: 1;
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: translateY(700px);
+    opacity: 0;
+  }
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+  animation-name: hinge;
+}
+
+.hinge {
+  animation-name: hinge;
+}
+
+
+.portfolio-img:hover {
+  
+  transform: scale(1.1) rotate(5deg);
+  /* background: linear-gradient(45deg, #e74c3c, #3498db); */
+  background: linear-gradient(45deg, #fff, #3498db);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8); /* Increased box-shadow on hover */
+  opacity: 0.95; /* Adjusted opacity on hover */
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  80%{
+    transform: scale(1) rotate(0deg);
+  }
+  100%{
+    transform: scale(1.1) rotate(-5deg);
+  }
+}
+
 section {
   padding: 50px 10%;
 }
@@ -262,18 +349,27 @@ span {
   background: var(--main-color);
   border-radius: 0.5rem;
 }
+
 .html-bar {
   width: 94%;
+  
 }
 .css-bar {
   width: 84%;
+  
 }
 .js-bar {
-  width: 74%;
+  width: 85%;
+  
 }
 .react-bar {
   width: 80%;
+  
 }
+
+
+
+
 .services-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
@@ -326,6 +422,7 @@ span {
   gap: 1rem;
   margin-top: 2rem;
   
+  
 
 }
 
@@ -342,6 +439,10 @@ span {
 .box{
   position: relative;  /* changes*/
   overflow: hidden;
+  width: 95%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid #333;
 }
 
 .portfolio-img img, h3 {
@@ -358,19 +459,30 @@ span {
 }
 
 .bottom{
-  height: 60%;
+ 
+  height: 100%;
   width: 100%;
-  background: linear-gradient(transparent, #4b8bf5);
+  background: linear-gradient(transparent, whitesmoke);
   position: absolute;
-  bottom: -40%;
+  bottom: -100%;
   transition: all ease 0.5s;
+  padding: 10px 10px;
+  overflow: hidden;
 }
 
+.box:hover{
+  border: none;
+}
 .box:hover .bottom{
   bottom: 0;
+  /* background-color: white; */
+  background: linear-gradient(45deg, #fff, #3498db);
+color: black;
+  border: none;
+  
 }
 .bottom span{
-  font-size: 10px;
+  font-size: 1rem;
 }
 
 
@@ -570,5 +682,21 @@ form textarea {
   }
   .contact-button{
     margin-left: 25%;
+  }
+
+
+  
+  .portfolio-img{
+    width: 100%;
+  }
+
+  .portfolio-img:hover {
+  
+    transform: scale(0.01) rotate(5deg);
+    /* background: linear-gradient(45deg, #e74c3c, #3498db); */
+    background: linear-gradient(45deg, #fff, #3498db);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8); /* Increased box-shadow on hover */
+    opacity: 0.95; /* Adjusted opacity on hover */
+    animation: pulse 2s infinite alternate;
   }
 }
