@@ -660,7 +660,7 @@ form textarea {
   }
 }
 
-@media (max-width:720px){
+@media (max-width:600px){
   :root {
     .home-text{
       padding: "10px";
