@@ -553,6 +553,11 @@ form textarea {
 .contact-button:hover {
   background: var(--hover);
 }
+
+#msg{
+  color: #22cf91;
+  display: block;
+}
  /* .footer {
   display: grid;
   place-items: center;

@@ -204,8 +204,8 @@
                         <h3>Qr-code generator</h3><a href="https://github.com/iamawez" target="_blank"><i
                                 class='bx bxl-github' style="color:white" ></i></a>
                     </div>
-                    <a href="https://iamawez.github.io/QRcodegenerator/" target="_blank"><img
-                            src="image/qrcode.png"></a>
+                    <img
+                    src="image/qrcode.png">
                 </div>
             </div>
             <div class="portfolio-img">
@@ -215,8 +215,8 @@
                         <h3>Gym-Landing page</h3><a href="https://github.com/iamawez" target="_blank"><i
                                 class='bx bxl-github' style="color:white" ></i></a>
                     </div>
-                    <a href="https://iamawez.github.io/gymlandingpage/" target="_blank"><img
-                            src="image/project3.png"></a>
+                    <img
+                            src="image/project3.png">
                 </div>
             </div>
 
@@ -229,12 +229,14 @@
             <span>Connect With Us</span>
         </div>
         <div class="contact-form">
-            <form action="">
-                <input type="text" placeholder="Your Name">
-                <input type="email" name="" id="" placeholder="Your Email">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Write Message Here..."></textarea>
-                <input type="button" value="Send" class="contact-button">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name">
+                <input type="email" name="Email" id="" placeholder="Your Email">
+                <textarea name="Message" id="" cols="30" rows="10" placeholder="Write Message Here..."></textarea>
+                <input type="submit" value="send" class="contact-button">
             </form>
+
+            <span id="msg"></span>
         </div>
     </section>
     <!-- Footer -->
@@ -258,7 +260,25 @@
     <!-- Link To JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxWRl2-0BsCywSdPE_XPxh2nQN052w1uudRc7cTtswZC8Zye_TTcFRuZ-Zw9XvNeXcqDA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg");
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message Sent Succesfully..!"
 
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },3000)
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
 </body>
 
