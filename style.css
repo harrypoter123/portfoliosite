@@ -445,6 +445,13 @@ span {
   border: 1px solid #333;
 }
 
+.portfolio-img img{
+  width: 100%;
+  display: block;
+  margin: 0 auto; /* Center the image */
+  border-radius: 10px;
+}
+
 .portfolio-img img, h3 {
   width: 100%;
   display: block;
@@ -468,6 +475,15 @@ span {
   transition: all ease 0.5s;
   padding: 10px 10px;
   overflow: hidden;
+}
+
+.bottom span {
+  font-size: 14px; /* Adjust font size for better readability on small screens */
+  text-align: left; /* Align text to the left */
+}
+
+.bottom a {
+  padding: 10px; /* Increase padding for better clickability */
 }
 
 .box:hover{
@@ -588,6 +604,10 @@ form textarea {
     --big-font: 2.4rem;
     --medium-font: 1.2rem;
   }
+
+  .bottom span {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
   header {
     padding: 11px 4%;
   }
@@ -660,40 +680,7 @@ form textarea {
   }
 }
 
-@media (max-width:600px){
-  :root {
-    .home-text{
-      padding: "10px";
-      width: "300px";
-      font-size: "20px";
-    };
 
-    #typewriter-name {
-      font-size: "2px";
-    }
-
-    .bottom h3{
-      font-size: 10px;
-    }
-
-    .bottom{
-      padding: "8px";
-      margin: "5px";
-     
-    }
-    .bx{
-      font-size: 20px;
-      gap: 15px;
-    }
-
-    .spantext{
-      
-      font-size: 5px;
-      text-align: right;
-    }
-
-  }
-}
 
 @media (max-width: 340px) {
   :root {
